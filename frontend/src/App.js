@@ -4,11 +4,11 @@ const App = () => {
   const [time, setTime] = React.useState('fetching')
 
   React.useEffect(() => {
-    const socket = io('http://localhost:5000')
+    const socket = io('http://localhost:3000')
 
     socket.on('connect', () => console.log(socket.id))
     socket.on('connect_error', () => {
-      setTimeout(() => socket.connect(), 5000)
+      setTimeout(() => socket.connect(), 3000)
     })
 
     socket.on('time', (data) => setTime(data))

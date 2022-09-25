@@ -1,7 +1,7 @@
 const express = require('express')
 const socketIo = require('socket.io')
 const http = require('http')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 const app = express()
 const server = http.createServer(app)
 const io = socketIo(server,{ 
@@ -21,7 +21,7 @@ io.on('connection',(socket)=>{
 
 setInterval(()=>{
      io.to('clock-room').emit('time', new Date())
-},1000)
+}, 1000)
 
 server.listen(PORT, err=> {
   if(err) console.log(err)
